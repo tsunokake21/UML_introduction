@@ -1,0 +1,19 @@
+@startuml ホテル
+left to right direction
+actor 経営者 as a
+actor ホテル従業員 as b
+rectangle ホテルシステム {
+  usecase ホテル予約 as UC1
+  usecase チェックイン as UC2
+  usecase チェックアウト as UC3
+  a --> UC1
+  a --> UC2
+  a --> UC3
+  b --> UC1
+  b --> UC2
+  b --> UC3
+  UC1 <|--- UC2
+  UC1 <|--- UC3
+}
+@enduml
+

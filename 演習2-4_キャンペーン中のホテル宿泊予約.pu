@@ -1,0 +1,12 @@
+@startuml キャンペーン価格
+left to right direction
+actor 利用者 #DDDDDD;line:black;line.bold;
+    rectangle キャンペーン{
+        usecase キャンペーン価格
+        usecase ログイン
+        usecase (<u>予約</u>\n拡張点\nキャンペーン期間) as input
+}
+    利用者 --> ログイン
+input <. ログイン  : <<include>>
+    キャンペーン価格 <. (input) :<< extend >>
+@enduml

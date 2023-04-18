@@ -1,0 +1,15 @@
+@startuml 従業員
+actor 社員 as s
+actor 人事担当者 as p
+rectangle 従業員登録システム {
+  usecase 社員情報登録 as UC1
+  usecase 社員情報参照 as UC2
+  usecase 社員情報変更 as UC3
+  usecase 社員情報変更 as UC4
+  s --> UC1 : 社員情報を登録する
+  s --> UC2 : 社員情報を参照する
+  s --> UC4 : 社員情報を変更する
+  p --> UC1 : 社員情報を登録する
+  p --> UC3 : 社員情報を変更する
+}
+@enduml

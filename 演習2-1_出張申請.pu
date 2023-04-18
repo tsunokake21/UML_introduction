@@ -1,0 +1,15 @@
+@startuml 出張
+left to right direction
+skinparam packageStyle rect
+actor 申請者 as a
+rectangle 出張申請システム {
+  usecase 出張申請書作成 as UC1
+  usecase 申請書確認 as UC2
+  usecase 申請書承認 as UC3
+  usecase 申請書却下 as UC4
+  a --> UC1
+  UC1 --> UC2
+  UC2 --> UC3
+  UC2 --> UC4
+}
+@enduml

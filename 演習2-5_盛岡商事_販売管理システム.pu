@@ -1,0 +1,11 @@
+@startuml 販売管理
+actor 従業員 as e
+rectangle 販売管理システム {
+  usecase 商品注文確認 as UC1
+  usecase 商品出荷登録 as UC2
+  e --> UC1 : 注文商品を確認する
+  e --> UC2 : 商品の出荷状況を登録する
+}
+@enduml
+
+
