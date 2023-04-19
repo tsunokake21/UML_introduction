@@ -1,15 +1,23 @@
 @startuml 出張
 left to right direction
-skinparam packageStyle rect
-actor 申請者 as a
+actor 申請者 #DDDDDD;line:black;line.bold;
+actor 交通費用精算システム #DDDDDD;line:black;line.bold;
+actor 承認者 #DDDDDD;line:black;line.bold;
+actor 経理担当者 #DDDDDD;line:black;line.bold;
 rectangle 出張申請システム {
-  usecase 出張申請書作成 as UC1
-  usecase 申請書確認 as UC2
-  usecase 申請書承認 as UC3
-  usecase 申請書却下 as UC4
-  a --> UC1
-  UC1 --> UC2
-  UC2 --> UC3
-  UC2 --> UC4
+usecase 出張申請を登録する
+usecase 出張申請を提出する
+usecase 出張申請を承認する
+usecase 出張申請を却下する
+usecase 出張申請を差し戻す
+usecase 出張申請を確認する
 }
+申請者 --> 出張申請を登録する
+申請者 --> 出張申請を提出する
+出張申請を登録する <-- 交通費用精算システム
+承認者 --> 出張申請を承認する
+承認者 --> 出張申請を却下する
+承認者 --> 出張申請を差し戻す
+承認者 --> 出張申請を確認する
+経理担当者 --> 出張申請を確認する
 @enduml
