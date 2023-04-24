@@ -1,0 +1,31 @@
+@startuml ホテル予約
+left to right direction
+actor 利用者 #DDDDDD;line:black;line.bold;
+actor 会員 #DDDDDD;line:black;line.bold;
+actor ホテル従業員 #DDDDDD;line:black;line.bold;
+actor ホテルの管理者 #DDDDDD;line:black;line.bold;
+rectangle ホテル予約システム {
+    usecase 空室状況の確認
+    usecase 空室状況を入力
+    usecase 予約の集計
+    usecase ホテルシステムログイン
+    usecase ログイン
+    usecase 会員登録
+    usecase (<u>ホテルの部屋を予約</u>\n拡張点\nキャンペーン期間中)as input
+    usecase キャンペーン価格
+    usecase (<u>ログイン</u>\n拡張点\nホテルの管理者)as adomin
+}
+利用者 --> 空室状況の確認
+利用者 --> ログイン
+利用者 --> 会員登録
+会員登録 --> 会員
+ログイン <-- 会員
+ログイン .> input  : <<include>>
+input --> キャンペーン価格
+空室状況を入力 --> 空室状況の確認
+ホテルシステムログイン <-- ホテル従業員
+空室状況を入力 <-- ホテルシステムログイン
+ホテルの管理者 --> ホテルシステムログイン
+ホテルシステムログイン .> adomin :<<include>>
+adomin .> 予約の集計 :<< extend >>
+@enduml

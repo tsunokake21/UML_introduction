@@ -7,4 +7,4 @@ actor 利用者 #DDDDDD;line:black;line.bold;
     }
 利用者 --> ログイン
 ログイン .> 予約: << include >>
-@endum
+@enduml
