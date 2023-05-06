@@ -1,0 +1,11 @@
+@startuml 車
+class Car {
+  - tires: Tire[4]
+}
+
+class Tire {
+}
+
+Car --> "*" Tire
+@enduml
+

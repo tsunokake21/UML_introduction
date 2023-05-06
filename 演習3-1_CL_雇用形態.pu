@@ -1,0 +1,37 @@
+@startuml 雇用形態
+abstract class Employee {
+    -id: int
+    -name: string
+    -salary: int
+    +Employee(id: int, name: string, salary: int)
+    +getId(): int
+    +getName(): string
+    +getSalary(): int
+    +calculateSalary(): int
+}
+
+class DispatchedEmployee {
+    -dispatchPeriod: int
+    +DispatchedEmployee(id: int, name: string, salary: int, dispatchPeriod: int)
+    +getDispatchPeriod(): int
+    +calculateSalary(): int
+}
+
+class ContractEmployee {
+    -contractPeriod: int
+    +ContractEmployee(id: int, name: string, salary: int, contractPeriod: int)
+    +getContractPeriod(): int
+    +calculateSalary(): int
+}
+
+class RegularEmployee {
+    -bonus: int
+    +RegularEmployee(id: int, name: string, salary: int, bonus: int)
+    +getBonus(): int
+    +calculateSalary(): int
+}
+
+Employee <|-- DispatchedEmployee
+Employee <|-- ContractEmployee
+Employee <|-- RegularEmployee
+@enduml

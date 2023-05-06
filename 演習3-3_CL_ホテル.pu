@@ -1,0 +1,20 @@
+@startuml ホテル
+class Room {
+  -roomNumber: int
+  -capacity: int
+}
+
+class Hotel {
+  -rooms: Room[*]
+  +registerMember(member: Member): void
+}
+
+class Member {
+  -name: string
+  -membershipNumber: int
+  +reserveRoom(roomNumber: int): void
+}
+
+Hotel *-- Room : has
+Hotel *-- Member : has
+@enduml

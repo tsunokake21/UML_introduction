@@ -1,0 +1,27 @@
+@startuml 医者
+class Doctor {
+  +name: string
+  +specialty: string
+  +examinePatient(patient: Patient): void
+  +createRecord(patient: Patient): void
+}
+
+class Patient {
+  +name: string
+  +assignedDoctor: Doctor
+}
+
+class Record {
+  +details: string
+}
+
+class Office {
+  +name: string
+  +doctors: List<Doctor>
+}
+
+Doctor --|> Record
+Doctor --|> Patient
+Patient o--> Doctor
+Office o--> Doctor
+@enduml

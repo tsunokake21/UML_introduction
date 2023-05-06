@@ -1,0 +1,14 @@
+@startuml 車
+object Car {
+  tire1 = Tire
+  tire2 = Tire
+  tire3 = Tire
+  tire4 = Tire
+}
+
+object Tire
+
+Car "4" *-- "4" Tire
+@enduml
+
+

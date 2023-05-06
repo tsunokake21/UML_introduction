@@ -1,0 +1,49 @@
+@startuml ホテル
+class Hotel {
+    -rooms: Room[]
+    -members: Member[]
+    +findAvailableRooms(date: Date, duration: int): Room[]
+    +reserveRoom(room: Room, guest: Guest, date: Date, duration: int): Reservation
+    +cancelReservation(reservation: Reservation): void
+    +addMember(member: Member): void
+    +removeMember(member: Member): void
+}
+
+class Room {
+    -roomNumber: String
+    -type: String
+    -price: int
+    -availability: boolean
+    +Room(roomNumber: String, type: String, price: int)
+    +isAvailable(date: Date, duration: int): boolean
+    +reserve(guest: Guest, date: Date, duration: int): Reservation
+    +cancelReservation(reservation: Reservation): void
+}
+
+class Member {
+    -id: String
+    -name: String
+    -reservations: Reservation[]
+    +Member(id: String, name: String)
+    +reserveRoom(room: Room, date: Date, duration: int): Reservation
+    +cancelReservation(reservation: Reservation): void
+}
+
+class Guest {
+    -name: String
+}
+
+class Reservation {
+    -guest: Guest
+    -room: Room
+    -checkInDate: Date
+    -duration: int
+}
+
+Hotel -> Room
+Hotel -> Member
+Room -> Reservation
+Member -> Reservation
+Reservation -> Guest
+Reservation -> Room
+@enduml
