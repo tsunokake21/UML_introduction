@@ -1,0 +1,37 @@
+@startuml ラーメン
+class Customer {
+  +placeOrder()
+}
+
+class Waiter {
+  +takeOrder(order: Order)
+  +notifyChef(order: Order)
+  +serveFood(order: Order)
+}
+
+class Chef {
+  +prepareFood(order: Order)
+}
+
+class Order {
+  -id: int
+  -dish: String
+  -table: int
+}
+
+class Ramen {
+  -noodles: String
+  -broth: String
+  -toppings: String
+}
+
+Customer -> Waiter: placeOrder()
+Waiter -> Order: takeOrder(order: Order)
+Order -> Waiter: notifyChef(order: Order)
+Chef -> Ramen: prepareFood(order: Order)
+Ramen --> Chef: Food is ready
+Chef --> Waiter: Food is ready
+Waiter -> Ramen: serveFood(order: Order)
+Waiter -> Customer: serveFood(order: Order)
+Customer -> Ramen: eat()
+@enduml

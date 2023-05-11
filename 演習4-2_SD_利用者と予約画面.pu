@@ -1,0 +1,7 @@
+@startuml 予約画面
+object user
+object reservationScreen
+
+user -> reservationScreen: login() <<async>>
+reservationScreen -> reservationScreen: authenticate() <<return>>
+@enduml

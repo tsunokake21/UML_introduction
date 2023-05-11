@@ -1,0 +1,8 @@
+@startuml ホテル
+object controller
+object hotel
+
+controller -> hotel: makeReservation()
+hotel -> hotel: createReservation() <<create>>
+hotel -> hotel: registerReservation() <<recursion>>
+@enduml
