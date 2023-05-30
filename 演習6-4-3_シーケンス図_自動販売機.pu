@@ -1,13 +1,32 @@
 @startuml 自販機
+skinparam sequenceArrowThickness 2
 
-actor 客 as Customer
-object 料金装置 as PaymentDevice
-object ボタン as Button
-object ベンダー装置 as VendorDevice
+participant 客
+participant 料金装置
+participant ボタン
+participant ベンダー装置
 
-Customer -> PaymentDevice: 残高をチャージする
-Customer -> Button: ボタンを押す
-Button -> VendorDevice: 商品を購入する
-VendorDevice --> Customer: ドリンクを配布する
+客 -> 料金装置: 金額を支払う
+activate 料金装置
+
+料金装置 -> ボタン: ドリンクを選択する
+activate ボタン
+
+ボタン -> ベンダー装置: ドリンクの注文を送信する
+activate ベンダー装置
+
+ベンダー装置 --> ボタン: 注文を確認する
+deactivate ベンダー装置
+
+ボタン --> 料金装置: 注文確認を返す
+deactivate ボタン
+
+料金装置 --> 客: 注文確認を通知する
+deactivate 料金装置
+
+客 -> ベンダー装置: ドリンクを受け取る
+activate ベンダー装置
+deactivate ベンダー装置
 
 @enduml
+
