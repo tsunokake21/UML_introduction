@@ -1,4 +1,4 @@
-@startuml ハンバーガー
+@startuml ハンバーガーショップ
 
 class 注文 {
   - 合計
